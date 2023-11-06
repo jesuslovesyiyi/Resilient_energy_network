@@ -50,7 +50,7 @@ def extract_station_data(station_id, station_lat, station_lon, nc_file, file):
                     if non_missing_values:
                         vals_avg = np.mean(non_missing_values)
                     else:
-                        vals_avg = 0  # Set a default value for missing data
+                        vals_avg = 0  # Set a default value for missing data = 0?
                     
                     var_values.append(vals_avg)
                 
