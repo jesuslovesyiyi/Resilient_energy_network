@@ -1,8 +1,6 @@
 import os
 import pandas as pd
 import numpy as np
-import netCDF4 as nc
-import csv
 from netCDF4 import Dataset
 from datetime import datetime, timedelta
 

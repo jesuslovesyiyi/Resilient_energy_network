@@ -1,0 +1,11 @@
+name: res_energy_net
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - matplotlib
+  - tqdm
+  - jupyter
+  - notebook
+  - netCDF4
+  - numpy

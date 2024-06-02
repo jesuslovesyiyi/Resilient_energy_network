@@ -1,16 +1,9 @@
-import csv
-import numpy as np
-import sys
-from bs4 import BeautifulSoup
-from lxml import etree
 import os
 from datetime import datetime
 from datetime import time, tzinfo, timedelta
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-
 import requests
-
 import pandas as pd
 from tqdm import tqdm
 import re
@@ -22,28 +15,36 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'
 }
 
+# Retrieve and display login captcha
 page_text = session.get(url=login_url,headers=headers)
 img_url = 'http://www.watchyourpower.org/captcha.php'
 img_data = session.get(url=img_url,headers=headers).content
-with open('./Code.jpg','wb') as fp:
+
+with open('./captcha.jpg','wb') as fp:
     fp.write(img_data)
-image = mpimg.imread("./Code.jpg")
+
+image = mpimg.imread("./captcha.jpg")
 plt.imshow(image)
 plt.show()
-img_code = input('Enter code：')
+img_code = input('Enter captcha：')
+
 username ='junrentschler'
 password ='jun@2018'
-data ={   'username': username,    'password': password, 'code':img_code, 'login': 'Login'}
-print(data)
+data = {'username': username,
+        'password': password,
+        'code': img_code,
+        'login': 'Login'}
+
+# Sign into watch your power session
 index = session.post(url=login_url, headers=headers, data=data)
 print(index)
-detial_url = 'http://www.watchyourpower.org/reports.php?category_id=3&location_id=119&from_date=13%2F01%2F2017&to_date=13%2F02%2F2017'
-detial_text = session.get(url=detial_url,headers=headers).text
-print(detial_text.find('Welcome'))
-if detial_text.find('Welcome') == -1:
+
+detail_url = 'http://www.watchyourpower.org/reports.php?category_id=3&location_id=119&from_date=13%2F01%2F2017&to_date=13%2F02%2F2017'
+detail_text = session.get(url=detail_url,headers=headers).text
+
+if detail_text.find('Welcome') == -1:
     exit()
 
-url_lists = []
 month_2dight={1:"01", 2:"02",3:"03",4:"04",5:"05", 6:"06",7:"07", 8:"08",9:"09",10:"10",11:"11", 12:"12"}
 
 for c in [2, 3, 4, 5]:
@@ -127,7 +128,8 @@ for item in tqdm(os.listdir(india_pk_dir)):
             location_name = full_name.split(' - ')[1].split(', ')[-1][:-1]
 
             # check '/' in names
-            state_name = state_name.replace("/", "_")
+            if '/' in state_name:
+                state_name = state_name.replace("/", "_")
             if '/' in district_name:
                 district_name = district_name.replace("/", "_")
             if '/' in location_name:
