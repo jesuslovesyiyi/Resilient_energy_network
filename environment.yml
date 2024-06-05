@@ -1,6 +1,7 @@
 name: res_energy_net
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - pandas
   - matplotlib
@@ -9,3 +10,5 @@ dependencies:
   - notebook
   - netCDF4
   - numpy
+  - requests-html
+  - pillow=9.0.0
