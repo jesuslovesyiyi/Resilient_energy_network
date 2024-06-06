@@ -10,5 +10,3 @@ dependencies:
   - notebook
   - netCDF4
   - numpy
-  - requests-html
-  - pillow=9.0.0
