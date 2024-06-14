@@ -10,3 +10,4 @@ dependencies:
   - notebook
   - netCDF4
   - numpy
+  - statsmodels
