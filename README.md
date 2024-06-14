@@ -7,5 +7,7 @@ data_preparation:
 Ignores data before January 1st, 2015, because that was when Prayas officially launched the ESMI program, and the available data quality before that is flawed.  
 Outputs csv files in the format [id]+[location]+[district]+[state].csv  
 The minute by minute datetimes are recorded in the default pandas export format yyyy-MM-dd HH:mm:ss.
-- india_pkl2csv.py: [Deprecated] converted previous pkl output of the india scraper to the final csv format.
 - indonesia_date_conversion.py: converts dates in the indonesia dataset to the uniform date format used throughout this project
+
+previous:
+- india_pkl2csv.py: [Deprecated] converted previous pkl output of the india scraper to the final csv format.
