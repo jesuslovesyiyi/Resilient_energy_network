@@ -1,0 +1,8 @@
+How to convert GRIB file to NetCDF file
+############################################
+
+# install pygit2
+brew install netCDF4 pandas pygit2
+
+# convert grib to netcdf
+grib_to_netcdf -o /Users/dahyejeong/Desktop/EAR5/2023_07.nc /Users/dahyejeong/Desktop/EAR5/IDN_WEST_2023_07.grib 
