@@ -1,0 +1,6 @@
+EAR5/final_verification/ERA5/
+ERA5/
+india_processing/india_uniform/
+.DS_Store
+era5_locations.csv
+ESMI_India_538_locations.csv
