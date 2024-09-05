@@ -1,4 +1,4 @@
-# Resilient_energy_network
+# Resilient energy network
 This project seeks to build a better understanding of the impact of covective weather on energy network in India.
 
 **Datasets**
