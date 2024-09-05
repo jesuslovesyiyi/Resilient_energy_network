@@ -4,7 +4,8 @@ This project seeks to build a better understanding of the impact of covective we
 **Datasets**
 - Voltage: [Electricity Supply Monitoring Initiative](https://watchyourpower.org/the_initiative.php) (ESMI)
 
-Files:
+**File organization**
+
 data_preparation:  
 - india_esmi_scraper.py: scrapes the ESMI website to get available data for currently online stations, resuming where the last scraping session had left off.  
 Ignores data before January 1st, 2015, because that was when Prayas officially launched the ESMI program, and the available data quality before that is flawed.  
