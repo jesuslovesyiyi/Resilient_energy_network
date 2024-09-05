@@ -1,4 +1,4 @@
-# Resilient energy network
+# Understanding the impact of weather conditions on energy infrastructure: a case study of India
 This project seeks to build a better understanding of the impact of covective weather on energy network in India.
 
 **Datasets**
