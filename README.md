@@ -5,7 +5,10 @@ This paper seeks to build a better understanding of the impact of covective weat
 - Voltage: [Electricity Supply Monitoring Initiative](https://watchyourpower.org/the_initiative.php) (ESMI)
 
 ESMI provides a database on supply interruptions and voltage levels at consumer locations in India. They installed Electricity Supply Monitors (ESM) in households, farms, and small commercial establishments all over India. The ESM is a plug-in device that integrates a voltage recorder. It provides voltage records by the minute at its location and sends data to a central server using Ground Penetrating Radar System (GPRS).
+
 - Weather: [ERA5-Land](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview)
+
+ERA5-Land is a reanalysis dataset providing a consistent view of the evolution of land variables over several decades at an enhanced resolution compared to ERA5. ERA5-Land has been produced by replaying the land component of the ECMWF ERA5 climate reanalysis. Reanalysis combines model data with observations from across the world into a globally complete and consistent dataset using the laws of physics. Reanalysis produces data that goes several decades back in time, providing an accurate description of the climate of the past.
 
 **File organization**
 
