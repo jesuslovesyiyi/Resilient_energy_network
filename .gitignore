@@ -4,14 +4,6 @@ india_processing/india_uniform/
 .DS_Store
 era5_locations.csv
 ESMI_India_538_locations.csv
-.DS_Store
-1-data/20240903India-Station-GRIB.qgz
-/1-data
-1-data
-
 *.qgz
-1-data/Changmin-GRIB-2023-01-t2m.grib
-1-data/Changmin-GRIB-2023-01-t2m.nc.aux.xml
-/1-data
-.DS_Store
-.DS_Store
+
+
