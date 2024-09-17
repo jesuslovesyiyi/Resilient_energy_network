@@ -5,5 +5,7 @@ india_processing/india_uniform/
 era5_locations.csv
 ESMI_India_538_locations.csv
 *.qgz
-
-
+/data
+.ipynb_checkpoints
+.DS_Store
+data_preparation/notebooks/test.csv
