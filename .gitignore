@@ -9,3 +9,4 @@ ESMI_India_538_locations.csv
 .ipynb_checkpoints
 .DS_Store
 data_preparation/notebooks/test.csv
+data_preparation/notebooks/test_station.csv
