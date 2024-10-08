@@ -7,10 +7,8 @@ ESMI_India_538_locations.csv
 *.qgz
 /data
 .ipynb_checkpoints
-.DS_Store
 data_preparation/notebooks/test.csv
 data_preparation/notebooks/test_station.csv
-.DS_Store
 data_preparation/notebooks/captcha.jpg
-.DS_Store
 /data_preparation/notebooks/india_esmi
+
