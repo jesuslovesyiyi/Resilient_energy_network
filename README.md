@@ -12,12 +12,12 @@ ERA5-Land is a reanalysis dataset providing a consistent view of the evolution o
 
 **File organization**
 
-Data preparation:  
+Data preparation: 
+01_
+
+Previous:
 - india_esmi_scraper.py: scrapes the ESMI website to get available data for currently online stations, resuming where the last scraping session had left off.  
 Ignores data before January 1st, 2015, because that was when Prayas officially launched the ESMI program, and the available data quality before that is flawed.  
 Outputs csv files in the format [id]+[location]+[district]+[state].csv  
 The minute by minute datetimes are recorded in the default pandas export format yyyy-MM-dd HH:mm:ss.
-- indonesia_date_conversion.py: converts dates in the indonesia dataset to the uniform date format used throughout this project
-
-Previous:
-- india_pkl2csv.py: [Deprecated] converted previous pkl output of the india scraper to the final csv format.
+- indonesia_date_conversion.py: converts dates in the indonesia dataset to the uniform date format used throughout this project- india_pkl2csv.py: [Deprecated] converted previous pkl output of the india scraper to the final csv format.
