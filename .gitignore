@@ -1,3 +1,7 @@
 .DS_Store
 data/
 plots/
+data_preparation/current/climate_zone_code_hist.png
+data_preparation/current/daily_blackout_time_by_climate_zone.png
+data_preparation/current/daily_temperature_by_climate_zone.png
+data_preparation/current/daily_wind_speed_by_climate_zone.png
