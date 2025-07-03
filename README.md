@@ -1,4 +1,4 @@
-# Understanding the impact of weather conditions on energy infrastructure: a case study of India
+# Lights Out: India’s Power Struggles Amid Rising Weather Extremes
 This paper seeks to build a better understanding of the impact of covective weather on energy network in India.
 
 **Datasets**
