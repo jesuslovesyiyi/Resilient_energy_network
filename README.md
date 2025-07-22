@@ -1,5 +1,5 @@
 # Lights Out: India’s Power Struggles Amid Rising Weather Extremes
-This paper seeks to build a better understanding of the impact of covective weather on energy network in India.
+
 ## Authors:
 Yiyi He, Georgia Tech<br>
 Jun Rentschler, The World Bank<br>
