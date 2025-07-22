@@ -5,13 +5,15 @@ Yiyi He, Georgia Tech<br>
 Jun Rentschler, The World Bank<br>
 
 ## Research gap
-Power grid is typically designed to provide a stable and continuous energy supply over long periods, as frequent disruptions—such as blackouts or brownouts—can have costly and far-reaching consequences. However, this stability is premised on design assumptions based on historically stable operating conditions.What has been studied extensively is the impact of extreme weather events on the power grid . However, not all power outages can be attributed to these extreme events. Daily and seasonal variations in weather conditions also contribute significantly to grid disruptions. While *acute* shocks to infrastructure systems—often intensified by a changing climate—have been the focus of much of the existing literature, the *chronic* and cumulative effects of gradual weather changes remain insufficiently examined.
+Power grid is typically designed to provide a stable and continuous energy supply over long periods, as frequent disruptions—such as blackouts or brownouts—can have costly and far-reaching consequences. However, this stability is premised on design assumptions based on historically stable operating conditions.What has been studied extensively is the impact of *extreme weather events* on the power grid . However, not all power outages can be attributed to these extreme events. Daily and seasonal variations in weather conditions also contribute significantly to grid disruptions. While *acute* shocks to infrastructure systems—often intensified by a changing climate—have been the focus of much of the existing literature, the *chronic* and cumulative effects of gradual weather changes remain insufficiently examined.
 
 
 ## Datasets used in this work
 ### Voltage data: [Electricity Supply Monitoring Initiative](https://watchyourpower.org/the_initiative.php) (ESMI)
 
-ESMI provides a database on supply interruptions and voltage levels at consumer locations in India. They installed Electricity Supply Monitors (ESM) in households, farms, and small commercial establishments all over India. The ESM is a plug-in device that integrates a voltage recorder. It provides voltage records by the minute at its location and sends data to a central server using Ground Penetrating Radar System (GPRS).
+We collect and analyze this minute-level voltage data from ESMI to assess patterns in electricity supply. Electricity Supply Monitoring Initiative (ESMI) was launched in March 2015 by Prayas Energy Group. It provides evidence-based feedback on the quality of electricity supply to end users across India. As part of this initiative, more than 500 Electricity Supply Monitors (ESMs), which has been deployed across the country to record minute-by-minute voltage readings, creating a reliable and granular database of supply interruptions at hundreds of consumer locations.  
+
+*ESM is a plug-in device that integrates a voltage recorder. It provides voltage records by the minute at its location and sends data to a central server using Ground Penetrating Radar System (GPRS)
 
 ### Weather: [ERA5-Land](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview)
 
