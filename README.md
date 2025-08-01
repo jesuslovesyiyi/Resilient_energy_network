@@ -24,7 +24,8 @@ We download hourly weather timeseries from the [ERA5-Land data](https://cds.clim
 
 ### Project Dataset Repository - OneDrive Access
 
-
+Station-wise Augmented Dickey-Fuller test results for hourly dataset [link to data](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/Eb5YSG7oP4lHr_pNp1eloksBttu31KyaOHkir8b8m2ksKg?e=yGChQz)
+Station-wise Augmented Dickey-Fuller test results for daily dataset [link to data](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EepiX2khbCtFiN4b5jj7v-oBHpMYnVqiPXzVhW-mVl7i5A?e=pmLMoO)
 
 
 **File organization**
