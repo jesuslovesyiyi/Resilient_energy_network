@@ -26,6 +26,11 @@ We download hourly weather timeseries from the [ERA5-Land data](https://cds.clim
 
 - Station-wise Augmented Dickey-Fuller test results for hourly dataset [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/Eb5YSG7oP4lHr_pNp1eloksBttu31KyaOHkir8b8m2ksKg?e=yGChQz)
 - Station-wise Augmented Dickey-Fuller test results for daily dataset [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EepiX2khbCtFiN4b5jj7v-oBHpMYnVqiPXzVhW-mVl7i5A?e=pmLMoO)
+- Station-wise Granger Causality test results (hourly)
+    - Maxlag=3 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/Ebb56fOnazxFkHDcbmPvTUgBVgyQa1Tv3QqHXfn9j1HCLg?e=vGD2G1)
+    - Maxlag=24 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/ETgtvvCPk71Hsto2fzcK8woBTS40-dGLHcrhVtiKThtL0A?e=iHhj9z)
+    - Maxlag=72 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EVnKlof26eVMqEoKPrVi_-kBI5XJ4aEQfFhZcsGXaYr_ww?e=UoWoYI)
+    - Maxlag=120 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EQ-f9SccLANHuGEhEfxozbsBfBGDuAkDqEwHTCaydxd4Bg?e=bGIqVN)
 
 
 **File organization**
