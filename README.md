@@ -31,7 +31,14 @@ We download hourly weather timeseries from the [ERA5-Land data](https://cds.clim
     - Maxlag=24 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/ETgtvvCPk71Hsto2fzcK8woBTS40-dGLHcrhVtiKThtL0A?e=iHhj9z)
     - Maxlag=72 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EVnKlof26eVMqEoKPrVi_-kBI5XJ4aEQfFhZcsGXaYr_ww?e=UoWoYI)
     - Maxlag=120 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EQ-f9SccLANHuGEhEfxozbsBfBGDuAkDqEwHTCaydxd4Bg?e=bGIqVN)
-
+- Station-wise Granger Causality test results (daily)
+    - Maxlag=3 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EYGwGB-bvBdLnq5XhZZEIKIBkcvPPFL1F06zGsCy55MAaw?e=uy1YBD)
+    - Maxlag=5 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/Ee8_1zKXj7BJoQCR_pedTbsB8og1SlvpBS4qGZwFMoiIWw?e=zhXGZ7)
+    - Maxlag=7 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EbifbS3noL9BjusvCuFxIqYBD7e47o04G6HZpjiPIbq2tw?e=6HkCVY)
+    - Maxlag=15 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/ERivlWLyCxNHok5FDukaSywBUTEh1GNipXqpGeTN0hhBRg?e=KPdigj)
+    - Maxlag=30 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EYvAr3dfq8pHv9ct58sCSEMBOmV2YTeiGRzAnFIYaCq7mA?e=2aZSCl)
+    - Maxlag=45 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EeRJdPE1xM5Jnwkjn4w13hABbbb9BbB2Drko4IaTh7RISw?e=GtSepR)
+    - Maxlag=60 [[link to data]](https://gtvault-my.sharepoint.com/:x:/g/personal/yhe603_gatech_edu/EbifbS3noL9BjusvCuFxIqYBD7e47o04G6HZpjiPIbq2tw?e=6HkCVY)
 
 **File organization**
 
