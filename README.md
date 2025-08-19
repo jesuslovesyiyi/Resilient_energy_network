@@ -42,8 +42,6 @@ We download hourly weather timeseries from the [ERA5-Land data](https://cds.clim
 
 **File organization**
 
-Data preparation: 
-01_
 
 Previous:
 - india_esmi_scraper.py: scrapes the ESMI website to get available data for currently online stations, resuming where the last scraping session had left off.  
