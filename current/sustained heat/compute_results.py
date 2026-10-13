@@ -27,16 +27,17 @@ from scipy.special import expit
 # CONFIG -- edit these for your own data / output location
 # ----------------------------------------------------------------------
 INPUT_CSVS = [
-    "/Users/yiyi/Library/CloudStorage/OneDrive-GeorgiaInstituteofTechnology/Research/Energy_resilience/01_data/processed/station_518_forest_perc_50kmBu_district_climate_dummy_df.csv",
+    os.path.join(os.path.expanduser("~"), "Library/CloudStorage/OneDrive-GeorgiaInstituteofTechnology/Research/Energy_resilience/01_data/processed", "station_518_forest_perc_50kmBu_district_climate_dummy_df.csv"),
 ]
-OUTPUT_DIR = "/Users/yiyi/Library/CloudStorage/OneDrive-GeorgiaInstituteofTechnology/Research/Energy_resilience/01_data/processed/temp_threshold"
+OUTPUT_DIR = os.path.join(os.path.expanduser("~"), "Library/CloudStorage/OneDrive-GeorgiaInstituteofTechnology/Research/Energy_resilience/01_data/processed", "temp_threshold")
 
 TEMP_COL = "t2m"              # Kelvin in the source data
 TEMP_UNITS = "kelvin"         # "kelvin" or "celsius"
 OUTCOME_COL = "pct_blackout"  # continuous [0,1] fraction
 STATION_COL = "station_id"
 CLIMATE_ZONE_COL = "climate_zone_code"
-PRECIP_COL = "tp"
+RAW_PRECIP_COL = "tp"         # ERA5-Land ACCUMULATED precip (metres, running total since 00:00 each day)
+PRECIP_COL = "log_rain"       # derived below: log(1 + hourly rain in mm). Used as the rain control in all models.
 WIND_COL = "wind_speed"
 DATETIME_COL = "datetime"
 
@@ -54,8 +55,37 @@ def out_path(name):
 # ----------------------------------------------------------------------
 # LOAD
 # ----------------------------------------------------------------------
+def add_hourly_rain(df):
+    """The raw `tp` column is NOT hourly rainfall: it is a running total since
+    00:00 that resets each day (mean `tp` climbs from ~0.11 mm at 01:00 to
+    ~3.1 mm at 23:00, and the 00:00 row holds the previous day's 24h total).
+    Recover hourly rain by differencing consecutive hours within a station:
+        hour 01      -> rain = tp                    (accumulation just restarted)
+        hours 02-23  -> rain = tp - tp(previous hour)
+        hour 00      -> rain = tp - tp(previous 23:00)  (00:00 holds the day's total)
+    Differencing is only valid when the previous row is exactly 1 hour earlier;
+    otherwise (missing hours) rain is set to NaN and those rows are excluded
+    from any model that uses rain. Returns df sorted by station and time."""
+    df = df.sort_values([STATION_COL, DATETIME_COL]).reset_index(drop=True)
+    tp_mm = df[RAW_PRECIP_COL].to_numpy(dtype="float64") * 1000.0
+    hour = df[DATETIME_COL].dt.hour.to_numpy()
+    stn = df[STATION_COL].to_numpy()
+    t = df[DATETIME_COL].to_numpy()
+
+    prev_ok = np.zeros(len(df), dtype=bool)
+    prev_ok[1:] = (stn[1:] == stn[:-1]) & ((t[1:] - t[:-1]) == np.timedelta64(1, "h"))
+    prev_tp = np.roll(tp_mm, 1)
+
+    rain = np.where(hour == 1, tp_mm, np.where(prev_ok, tp_mm - prev_tp, np.nan))
+    rain = np.where(np.isnan(rain), np.nan, np.maximum(rain, 0.0))  # clip tiny negative float noise
+
+    df["rain_mm"] = rain.astype("float32")
+    df[PRECIP_COL] = np.log1p(df["rain_mm"]).astype("float32")
+    return df.drop(columns=[RAW_PRECIP_COL])
+
+
 def load_data():
-    usecols = [DATETIME_COL, OUTCOME_COL, TEMP_COL, PRECIP_COL, WIND_COL,
+    usecols = [DATETIME_COL, OUTCOME_COL, TEMP_COL, RAW_PRECIP_COL, WIND_COL,
                STATION_COL, CLIMATE_ZONE_COL]
     frames = [pd.read_csv(p, parse_dates=[DATETIME_COL], usecols=usecols)
               for p in INPUT_CSVS]
@@ -63,11 +93,11 @@ def load_data():
 
     df["t2m_c"] = (df[TEMP_COL] - 273.15 if TEMP_UNITS == "kelvin" else df[TEMP_COL]).astype("float32")
     df[OUTCOME_COL] = df[OUTCOME_COL].astype("float32")
-    df[PRECIP_COL] = df[PRECIP_COL].astype("float32")
     df[WIND_COL] = df[WIND_COL].astype("float32")
     df[STATION_COL] = df[STATION_COL].astype("int32")
     df[CLIMATE_ZONE_COL] = df[CLIMATE_ZONE_COL].astype("category")
     df["month"] = df[DATETIME_COL].dt.month.astype("int8")
+    df = add_hourly_rain(df)
     return df
 
 
@@ -259,6 +289,7 @@ def stage_c_by_zone(df, spline_df=4, every_n=1, fit_n_sample=PRED_N_SAMPLE, min_
     predicted curve + its steepest-slope ('threshold') temperature.
     Zones with few stations will have noisier/overfit curves -- check
     station counts before trusting any wiggle in the curve shape."""
+    df = df.dropna(subset=[PRECIP_COL])   # rows where hourly rain couldn't be recovered
     results = {}
     for zone in df[CLIMATE_ZONE_COL].cat.categories:
         sub = df[df[CLIMATE_ZONE_COL] == zone].copy()
@@ -314,7 +345,7 @@ if __name__ == "__main__":
     print(stage_a_result.to_string(index=False))
 
     print("\n--- Stage B: confirmatory spline GLM ---")
-    df_sample = subsample_per_station(df, SUBSAMPLE_EVERY_N)
+    df_sample = subsample_per_station(df.dropna(subset=[PRECIP_COL]), SUBSAMPLE_EVERY_N)
     print(f"  Using {len(df_sample):,} rows (every {SUBSAMPLE_EVERY_N}th per station) for fitting")
 
     lr_stat, df_diff, p_value, formula = stage_b_lr_test(df_sample)
